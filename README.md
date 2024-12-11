@@ -1,6 +1,6 @@
 # Stores
 This repo is a space to contain my online store projects. 
-
+I dislike making READMEs but an empty one is boring. Take it away, AI
 ---
 ## Stores should contain
 - Product Listings 🏷️
