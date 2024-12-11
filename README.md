@@ -1,5 +1,5 @@
 # Stores
-This repo is a space to contain my online store projects. 
+This repo is a space to contain my online store projects.  <br>
 I dislike making READMEs but an empty one is boring. Take it away, AI
 ---
 ## Stores should contain
