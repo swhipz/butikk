@@ -1,0 +1,3 @@
+Just a space to store tutorials im following.
+Tutorials are kind of wierd, you learn the steps but not how they got there. 
+Being aware of this is key to not just becoming a code-along-Andy
