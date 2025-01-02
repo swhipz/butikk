@@ -1,0 +1,38 @@
+.scrollingElement{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: -100%;
+    animation: primary 3s linear infinite;
+    
+}
+.primary{
+    animation: primary 3s linear infinite;
+}
+.secondary{
+    animation: primary 3s linear infinite;
+}
+
+@keyframes primary {
+    from {
+        bottom: 0%;
+    }
+    to{
+        top: 100%;
+    }
+}
+@keyframes secondary {
+  from {
+    bottom: 100%;
+  }
+  to {
+    top: 0%;
+  }
+}
+
+.upscroll{
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

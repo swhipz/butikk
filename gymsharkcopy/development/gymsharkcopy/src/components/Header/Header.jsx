@@ -1,3 +1,4 @@
+import Upscroll from '../Upscroll/Upscroll';
 import './header.css';
 
 const Header = () => {
@@ -14,7 +15,16 @@ const Header = () => {
             <li><img src="https://www.svgrepo.com/show/506559/shopping-bag.svg" alt="" /></li>
         </ul>
         </header>
-        <div className="greybar" style={{height: "60px"}}></div>
+        <div className="greybar" style={{height: "50px", overflow:"hidden", position:"relative",display:"flex",flexDirection:"row",justifyContent:"space-evenly"}}>
+            <Upscroll/>
+            <Upscroll/>
+            <Upscroll/>
+            <Upscroll/>
+            <Upscroll/>
+            <Upscroll/>
+            <Upscroll/>
+            
+         </div>
         </>
     );
 }
