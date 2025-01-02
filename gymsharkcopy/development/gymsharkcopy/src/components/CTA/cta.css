@@ -1,0 +1,15 @@
+.ctaButton{
+    display: flex;
+    padding: 1rem;
+    padding-inline: 2rem;
+    width: fit-content;
+    border-radius: 55px;
+    font-weight: 700;
+    background-color: #f9f9f9;
+
+}
+.ctaButton:hover{
+    cursor: pointer;
+    background-color: #292929;
+    color: #f0f0f0;
+}
