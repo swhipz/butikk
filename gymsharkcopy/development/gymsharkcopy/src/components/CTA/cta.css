@@ -1,15 +1,25 @@
 .ctaButton{
     display: flex;
+    height: 25px;
     padding: 1rem;
     padding-inline: 2rem;
     width: fit-content;
     border-radius: 55px;
     font-weight: 700;
     background-color: #f9f9f9;
+    margin-left: 1rem;
 
 }
 .ctaButton:hover{
     cursor: pointer;
     background-color: #292929;
     color: #f0f0f0;
+}
+.women{
+    color: #f9f9f9;
+    background-Color: #292929;
+}
+.women:hover{
+    color: #292929;
+    background-color: #f0f0f0;
 }

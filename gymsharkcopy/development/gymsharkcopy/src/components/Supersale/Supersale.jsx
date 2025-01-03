@@ -8,9 +8,8 @@ const Supersale = () => {
             <div className="supersale-wrap">
                 <div className="supersale-banner-title">
                     LIGMA SALE UP TO 60% OFF*
-                    
                 </div>
-                <p>MORE discounts added. Get some 2025 motivation in the form of the freshest gym fits.</p>
+                <p style={{color: "#f9f9f9"}}>MORE discounts added. Get some 2025 motivation in the form of the freshest gym fits.</p>
                 <CTAMEN />
             </div>
         </div>

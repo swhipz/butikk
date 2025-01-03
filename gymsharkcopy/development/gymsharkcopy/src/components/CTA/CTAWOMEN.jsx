@@ -3,7 +3,7 @@ const CTAWOMEN = () => {
 
     return(
         <>
-        <div className="ctaButton" style={{color: "#f9f9f9", backgroundColor:"#292929"}}>SHOP WOMEN</div>
+        <div className="ctaButton women">SHOP WOMEN</div>
         </>
     )
 }

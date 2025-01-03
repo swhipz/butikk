@@ -1,13 +1,18 @@
 header{
     display: flex;
     height: 10vh;
-    margin: 1rem;
+    margin: 0;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 99;
 }
 #logo{
-    padding-top: 1rem;
+    padding-top: .5rem;
     height: 39px;
     padding-left: 2rem;
 }
