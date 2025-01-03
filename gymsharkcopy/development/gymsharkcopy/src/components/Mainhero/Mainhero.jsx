@@ -1,7 +1,6 @@
 import CTAMEN from '../CTA/CTAMEN';
 import CTAWOMEN from '../CTA/CTAWOMEN';
 import './mainhero.css';
-import bg from "./Screenshot 2025-01-03 004657.png";
 const Mainhero = () => {
     return(
         <>
