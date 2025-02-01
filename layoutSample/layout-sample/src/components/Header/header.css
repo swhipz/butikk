@@ -8,13 +8,13 @@
   
 
 .header-container header{
-    display: flex;
     flex-direction: row; 
     height: 20vh; 
     align-items: center;
     justify-content: space-evenly;
     background-color: #faebd7;
     color: #d2a771;
+    border-bottom: .5rem solid #cea068;
 }
 .header-logo{
     font-family: "Archivo Black", serif;

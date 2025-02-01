@@ -1,0 +1,38 @@
+body{
+    overflow-x: hidden;
+}
+.home-container{
+    background-color: #ebcba5;
+    color: #faebd7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-main{
+    height: 100vh;
+    background-color: #faebd7;
+    width: 50vw;
+    color: #caa16f;
+    justify-content: center;
+    display: flex;
+}
+.home-main-content{
+    padding: 1rem;  
+    text-align: left;
+    width: 80%;
+}
+.home-main-content h2{
+    font-size: 2rem;
+}
+.home-main-content h3{
+    font-size: 1rem;
+    font-weight: 500;
+}
+@media screen and (max-width: 789px){
+    .home-main-content{
+        width: 100vw;
+    }
+    .home-container{
+        width: 100vw;
+    }
+}
