@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.archivo-black-regular {
+    font-family: "Archivo Black", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+.header-container header{
+    display: flex;
+    flex-direction: row; 
+    height: 20vh; 
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #faebd7;
+    color: #d2a771;
+}
+.header-logo{
+    font-family: "Archivo Black", serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.header-ul{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    list-style: none;
+    font-weight: 500;
+    font-family: "Montserrat";
+
+}
+.header-ul li{
+    padding: 0 1rem;
+}

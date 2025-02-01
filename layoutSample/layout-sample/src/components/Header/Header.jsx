@@ -1,24 +1,26 @@
-
+import './header.css'
 
 const Header = () => {
     return(
         <>
+        <div className="header-container">
         <header>
             <div className="header-logo">
-                itemmbrowse
+                Item Browser
             </div>
             <ul className="header-ul">
                 <li>
-                    <Link></Link>
+                    Home
                 </li>
                 <li>
-                    <Link></Link>
+                   Items
                 </li>
                 <li>
-                    <Link></Link>
+                    Checkout
                 </li>
             </ul>
         </header>
+        </div>
         </>
     )
 }

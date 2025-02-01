@@ -1,9 +1,7 @@
 const Home = () => {
     return(
         <>
-        <header>
-          
-        </header>
+
         </>
     )
 }
