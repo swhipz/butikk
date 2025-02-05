@@ -17,6 +17,8 @@ const Home = () => {
         let i = array.map(function(e){return e.id}).indexOf(id);
         array.splice(i, 1);
 
+      
+
 
     }
 
@@ -39,7 +41,7 @@ const Home = () => {
                                 <td>{item.Age}</td>
                                 <Button className="me-2" variant="info">Edit NF</Button>
                                 <Button className="me-2" variant="danger"
-                                onClick={deleteID(item.id)}
+                                onClick={() => {deleteID(item.id)}}
                                 >Remove</Button>
 
                             </tr>
