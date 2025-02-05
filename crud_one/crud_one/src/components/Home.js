@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
 
+    
+    let history = useNavigate();
   
 
     function setID(id, name, age) {
@@ -18,8 +20,7 @@ const Home = () => {
         array.splice(i, 1);
 
       
-
-
+        history("/");
     }
 
     return(
