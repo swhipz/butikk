@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
 
     
-    let history = useNavigate();
+   // let history = useNavigate();
   
 
     function setID(id, name, age) {
@@ -20,7 +20,6 @@ const Home = () => {
         array.splice(i, 1);
 
       
-        history("/");
     }
 
     return(
@@ -31,6 +30,7 @@ const Home = () => {
                     <tr>
                         <th>Name</th>
                         <th>Age</th>
+                        <th>Type</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -40,6 +40,7 @@ const Home = () => {
                             <tr key={index}>
                                 <td>{item.Name}</td>
                                 <td>{item.Age}</td>
+                                <td>{item.Type}</td>
                                 <Button className="me-2" variant="info">Edit NF</Button>
                                 <Button className="me-2" variant="danger"
                                 onClick={() => {deleteID(item.id)}}

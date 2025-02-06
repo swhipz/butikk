@@ -15,8 +15,9 @@ function App() {
         <input type="number" name="ageInput" id="ageInput" placeholder='Age' style={{width: "5rem", textAlign:"center"}}/>
         <button>Submit</button>
       </div>
-      <div className="crud-output-wrapper">
-        <div className="content-display">
+      <div className="crud-output-wrapper" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <div className="content-display" style={{display:"flex", flexDirection:"column", width: "50vw"}}>
+          <Home />
         
 
         </div>
