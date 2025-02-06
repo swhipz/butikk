@@ -9,7 +9,7 @@ const emptyArray = [];
 const Home = () => {
 
     
-   // let history = useNavigate();
+    let history = useNavigate();
   
 
     function setID(id, name, age, type) {
@@ -22,7 +22,7 @@ const Home = () => {
         let i = emptyArray.map(function(e){return e.id}).indexOf(id);
         emptyArray.splice(i, 1);
 
-       window.location.reload();
+       history("/")
 
     }
 
