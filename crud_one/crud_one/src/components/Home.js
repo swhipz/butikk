@@ -19,8 +19,8 @@ const Home = () => {
         localStorage.setItem("Type", type);
     }
     const deleteID = (id) => {
-        let i = emptyArray.map(function(e){return e.id}).indexOf(id);
-        emptyArray.splice(i, 1);
+        let i = array.map(function(e){return e.id}).indexOf(id);
+        array.splice(i, 1);
 
        history("/")
 
@@ -28,7 +28,7 @@ const Home = () => {
 
     return(
         <>
-        <div className="h2-home" style={{fontWeight: "900"}}>Homepage</div>
+        <div className="h2-home" style={{fontWeight: "600", fontSize:"2rem"}}>Homepage</div>
         <Table striped bordered hover responsive className="shadow-sm">
         <thead className="thead-dark">
                     <tr>
