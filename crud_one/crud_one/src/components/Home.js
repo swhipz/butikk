@@ -59,6 +59,8 @@ const Home = () => {
                 </tbody>
         </Table>
 
+        <Link to="/create" ><Button style={{width:"100%"}}>Create new user</Button></Link>
+
         </>
     )
 
