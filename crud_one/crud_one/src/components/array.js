@@ -1,22 +1,20 @@
-const array = [
+// Get array from localStorage or use default if none exists
+const getInitialArray = () => {
+  const savedArray = localStorage.getItem("array");
+  if (savedArray) {
+    return JSON.parse(savedArray);
+  }
+  // Default array if nothing in localStorage
+  return [
     {
-        id: "1",
-        Name: "Mathilde",
-        Age: "24",
-        Type: "Humanoid",
+      id: "1",
+      Name: "Fredrik",
+      Age: "25",
+      Type: "Humanoid",
     },
-    {
-        id: "2",
-        Name: "Fredrik",
-        Age: "25",
-        Type: "Humanoid",
-    },
-    {
-        id :"3",
-        Name: "Tassen",
-        Age: "12",
-        Type: "Kanine",
-    }
-];
+  ];
+};
+
+const array = getInitialArray();
 
 export default array;
