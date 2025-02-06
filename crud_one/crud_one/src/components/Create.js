@@ -72,7 +72,7 @@ const Create = () => {
        </Form>
         </div>
       </div>
-        <Link to="/.."><Button style={{margin: "1rem", width:"100%"}}>Back to overview</Button></Link>
+        <Link to="/.."><Button variant="danger" style={{margin: "1rem", width:"30%"}}>Cancel </Button></Link>
 
 
 </>

@@ -46,7 +46,7 @@ const Home = () => {
                                 <td>{item.Name}</td>
                                 <td>{item.Age}</td>
                                 <td>{item.Type}</td>
-                                <Button className="me-2" variant="info">Edit NF</Button>
+                                <Button className="me-2" variant="warning">Edit NF</Button>
                                 <Button className="me-2" variant="danger"
                                 
                                 onClick={() => {deleteID(item.id)}}
