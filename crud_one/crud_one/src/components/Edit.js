@@ -7,9 +7,10 @@ import {Link, useNavigate} from "react-router-dom";
 
 const Edit = () => {
   
-  const [id, setId] = useState("");
+  
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  const [id, setId] = useState("");
   const [type, setType] = useState("");
 
   let history = useNavigate();
@@ -28,6 +29,7 @@ const Edit = () => {
     }
     
     let a = array[i];
+
     a.Name = name;
     a.Age = age;
     a.Type = type;
@@ -47,22 +49,22 @@ const Edit = () => {
   return(
     <>
     <Form className="d-grid gap2" id="updateID">
-      <Form.Group controlId="formBasicEmail">
-        <Form.Control value={name} onChange={(e)=>{setName(e.target.value)}} type="text" style={{display:"flex", textAlign:"center"}} />        
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control value={name} onChange={(e) => setName(e.target.value)} style={{display:"flex", textAlign:"center"}} />        
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Control value={age} onChange={(e)=>{setAge(e.target.value)}} type="number" min="0" style={{display:"flex", textAlign:"center"}} />        
       </Form.Group>
       <Form.Group controlId="formBasicSelect">
-        <select className="form-select" style={{textAlign:"center"}}>
+        <select className="form-select" value={type}style={{textAlign:"center"}}>
           <option value="Humanoid">Humanoid</option>
           <option value="Kanine">Kanine</option>
           <option value="other">Other</option>
         </select>    
       </Form.Group>
     </Form>
-    <Button variant="warning" className="btn" style={{marginTop:"2vh"}} onClick={(e)=>{handleSubmit(e)}}>Update</Button>
-    <Link to="/" style={{marginTop:"5vh"}}><Button variant="primary">Home</Button></Link>
+    <Button variant="primary" type="submit" size="lg" className="btn" style={{marginTop:"2vh", fontWeight:"600"}} onClick={(e)=>{handleSubmit(e)}}>Update</Button>
+    <Link to="/" style={{marginTop:"5vh"}}><Button variant="warning">Home</Button></Link>
 
     </>
   )
