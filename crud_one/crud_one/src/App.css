@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+
 .App {
   text-align: center;
+  
+}
+h1{
+  font-family: 'Bangers';
+  font-size: 10rem;
 }
 
 .App-logo {
@@ -10,6 +18,16 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+.content-display{
+  width: 48vw;
+
+}
+@media screen and (max-width: 790px){
+  .content-display{
+    max-width: 100vw;
+    min-width: 100vw;
   }
 }
 

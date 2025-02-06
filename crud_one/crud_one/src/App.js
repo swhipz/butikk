@@ -15,10 +15,10 @@ import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
-      <h1></h1>
+      <h1>CRUD ONE</h1>
 
       <div className="crud-output-wrapper" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-        <div className="content-display" style={{display:"flex", flexDirection:"column", width: "50vw"}}>
+        <div className="content-display" style={{display:"flex", flexDirection:"column"}}>
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import array from "./array";
 import { Link, useNavigate } from "react-router-dom";
 
-const emptyArray = [];
+
 
 const Home = () => {
 
