@@ -17,7 +17,9 @@ const Home = () => {
         localStorage.setItem("Name", name);
         localStorage.setItem("Age", age);
         localStorage.setItem("Type", type);
+        
     }
+
     const deleteID = (id) => {
         let i = array.map(function(e){return e.id}).indexOf(id);
         array.splice(i, 1);
@@ -32,17 +34,18 @@ const Home = () => {
         <Table striped bordered hover responsive className="shadow-sm">
         <thead className="thead-dark">
                     <tr>
+                        <th>id</th>
                         <th>Name</th>
                         <th>Age</th>
                         <th>Type</th>
                         <th>Actions</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
                     {array.map((item,index) => {
                         return(
                             <tr key={index}>
+                                <td>{item.id}</td>
                                 <td>{item.Name}</td>
                                 <td>{item.Age}</td>
                                 <td>{item.Type}</td>
@@ -60,6 +63,7 @@ const Home = () => {
         </Table>
 
         <Link to="/create" ><Button style={{width:"100%"}}>Create new user</Button></Link>
+
 
         </>
     )
