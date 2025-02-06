@@ -4,22 +4,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import array from "./array";
 import { Link, useNavigate } from "react-router-dom";
 
+const emptyArray = [];
+
 const Home = () => {
 
     
    // let history = useNavigate();
   
 
-    function setID(id, name, age) {
+    function setID(id, name, age, type) {
         localStorage.setItem("id", id);
         localStorage.setItem("Name", name);
         localStorage.setItem("Age", age);
+        localStorage.setItem("Type", type);
     }
     const deleteID = (id) => {
-        let i = array.map(function(e){return e.id}).indexOf(id);
-        array.splice(i, 1);
+        let i = emptyArray.map(function(e){return e.id}).indexOf(id);
+        emptyArray.splice(i, 1);
 
-      
+       window.location.reload();
+
     }
 
     return(
