@@ -78,7 +78,7 @@ const Edit = () => {
           >
             <option value="Humanoid">Humanoid</option>
             <option value="Kanine">Kanine</option>
-            <option value="other">Other</option>
+            <option value="other">Other</option> {/**other */}
           </select>
         </Form.Group>
       </Form>
