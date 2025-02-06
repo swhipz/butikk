@@ -46,7 +46,7 @@ const Edit = () => {
   
   return(
     <>
-    <Form className="d-grid gap2" id="updateID" >
+    <Form className="d-grid gap2" id="updateID">
       <Form.Group controlId="formBasicEmail">
         <Form.Control value={name} onChange={(e)=>{setName(e.target.value)}} type="text" style={{display:"flex", textAlign:"center"}}/>        
       </Form.Group>
@@ -62,6 +62,7 @@ const Edit = () => {
       </Form.Group>
     </Form>
     <Button variant="warning" className="btn" style={{width:"80%", marginTop:"2vh"}} onClick={(e)=>{handleSubmit(e)}}>Update</Button>
+    <Link to="/"><Button variant="primary">Home</Button></Link>
 
     </>
   )
