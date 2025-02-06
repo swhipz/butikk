@@ -29,13 +29,14 @@ const Home = () => {
 
   return (
     <>
-      <div className="h2-home" style={{ fontWeight: "600", fontSize: "2rem" }}>
-        Homepage
+      <div className="h2-home" style={{ fontWeight: "100", fontSize: "2rem", fontFamily:"Bangers"}}>
+        Overview
       </div>
-      <Table striped bordered hover responsive className="shadow-sm">
-        <thead className="thead-dark">
+      <div className="tableWrap" style={{display:"block", justifyContent: "space-evenly", alignItems:"stretch"}}>
+      <Table striped bordered hover responsive className="shadow-sm" style={{width: "100%"}}>
+        <thead className="thead-dark" >
           <tr>
-            <th>id</th>
+            <th >id</th>
             <th>Name</th>
             <th>Age</th>
             <th>Type</th>
@@ -50,8 +51,10 @@ const Home = () => {
                 <td>{item.Name}</td>
                 <td>{item.Age}</td>
                 <td>{item.Type}</td>
+                <div className="actionButtons" style={{display:"flex", justifyContent:"space-evenly"}}>
                 <Link to={`/edit`}>
                   <Button
+                    style={{fontFamily:"Bangers", width:"100%", color:"white"}}
                     variant="info"
                     onClick={() => {
                       setID(item.id, item.Name, item.Age, item.Type);
@@ -62,6 +65,7 @@ const Home = () => {
                 </Link>
                 <Link>
                   <Button
+                    style={{fontFamily:"Bangers", width:"100%"}}
                     type="button"
                     className="btn btn-danger"
                     variant="danger"
@@ -72,14 +76,17 @@ const Home = () => {
                     Remove
                   </Button>
                 </Link>
+                </div>
               </tr>
+              
             );
           })}
         </tbody>
       </Table>
+      </div>
 
       <Link to="/create">
-        <Button style={{ width: "100%" }}>Create new user</Button>
+        <Button style={{ width: "100%", fontFamily:"Bangers"}}>Create new user</Button>
       </Link>
     </>
   );

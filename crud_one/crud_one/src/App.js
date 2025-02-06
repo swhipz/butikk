@@ -15,7 +15,7 @@ import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
-      <h1>CRUD ONE</h1>
+      <h1 style={{fontSize:"128px"}}>CRUD #1</h1>
 
       <div className="crud-output-wrapper" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
         <div className="content-display" style={{display:"flex", flexDirection:"column"}}>

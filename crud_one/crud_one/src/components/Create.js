@@ -44,7 +44,7 @@ const Create = () => {
         className="crud-wrapper"
         style={{ display: "flex", flexDirection: "column" }}
       >
-        <h2>Create new user!</h2>
+        <h2 style={{fontFamily:"Bangers"}}>Create new user!</h2>
         <div
           className="crud-input-wrapper"
           style={{
@@ -114,7 +114,7 @@ const Create = () => {
                 handleSubmit(e);
               }}
               variant="primary"
-              style={{ position: "relative" }}
+              style={{ position: "relative",fontFamily:"Bangers", letterSpacing:"2px" }}
             >
               Add
             </Button>
@@ -122,7 +122,7 @@ const Create = () => {
         </div>
       </div>
       <Link to="/..">
-        <Button variant="danger" style={{ margin: "1rem", width: "30%" }}>
+        <Button variant="danger" style={{ margin: "1rem", width: "30%", fontFamily:"Bangers", letterSpacing:"3px"}}>
           Cancel
         </Button>
       </Link>
