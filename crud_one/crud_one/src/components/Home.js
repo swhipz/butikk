@@ -49,11 +49,17 @@ const Home = () => {
                                 <td>{item.Name}</td>
                                 <td>{item.Age}</td>
                                 <td>{item.Type}</td>
-                                <Button className="me-2" variant="warning">Edit NF</Button>
-                                <Button className="me-2" variant="danger"
-                                
+                                <Link to={`/edit`} >
+                                <Button  variant="info" 
+                                onClick={() => {
+                                    setID(item.id, item.Name, item.Age, item.Type)
+                                }}
+                                >Update</Button>
+                                </Link>
+                                <Link>
+                                <Button type="button" className="btn btn-danger" variant="danger"
                                 onClick={() => {deleteID(item.id)}}
-                                >Remove</Button>
+                                >Remove</Button></Link>
 
                             </tr>
                             

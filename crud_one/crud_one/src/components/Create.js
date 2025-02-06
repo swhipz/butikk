@@ -13,7 +13,7 @@ const Create = () => {
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  const [type, setType] = useState("Humanoid");
+  const [type, setType] = useState("");
 
   const history = useNavigate();
 
@@ -46,7 +46,7 @@ const Create = () => {
     array.push({ id: nextId, Name: a, Age: b, Type: c});
     console.log("push complete");
 
-    
+
 
     //return back to homepage after successful push
     history("/..");
