@@ -48,7 +48,7 @@ const Edit = () => {
     <>
     <Form className="d-grid gap2" id="updateID">
       <Form.Group controlId="formBasicEmail">
-        <Form.Control value={name} onChange={(e)=>{setName(e.target.value)}} type="text" style={{display:"flex", textAlign:"center"}}/>        
+        <Form.Control value={name} onChange={(e)=>{setName(e.target.value)}} type="text" style={{display:"flex", textAlign:"center"}} />        
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Control value={age} onChange={(e)=>{setAge(e.target.value)}} type="number" min="0" style={{display:"flex", textAlign:"center"}} />        
@@ -61,8 +61,8 @@ const Edit = () => {
         </select>    
       </Form.Group>
     </Form>
-    <Button variant="warning" className="btn" style={{width:"80%", marginTop:"2vh"}} onClick={(e)=>{handleSubmit(e)}}>Update</Button>
-    <Link to="/"><Button variant="primary">Home</Button></Link>
+    <Button variant="warning" className="btn" style={{marginTop:"2vh"}} onClick={(e)=>{handleSubmit(e)}}>Update</Button>
+    <Link to="/" style={{marginTop:"5vh"}}><Button variant="primary">Home</Button></Link>
 
     </>
   )
