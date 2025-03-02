@@ -1,5 +1,6 @@
 {
   "name": "crud_one",
+  "homepage": "https://swhipz.github.io/crud_one_live",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +17,7 @@
   },
   "scripts": {
     "deploy": "gh-pages -d dist",
+    "predeploy": "yarn run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

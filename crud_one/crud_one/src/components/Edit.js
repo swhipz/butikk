@@ -77,7 +77,8 @@ const Edit = () => {
             style={{ textAlign: "center" }}
           >
             <option value="Humanoid">Humanoid</option>
-            <option value="Kanine">Kanine</option>
+            <option value="Canine">Canine</option>
+            <option value="Feline">Feline</option>
             <option value="other">Other</option> {/**other */}
           </select>
         </Form.Group>

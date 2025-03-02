@@ -104,7 +104,8 @@ const Create = () => {
                 style={{ height: "2.25rem", textAlign: "center" }}
               >
                 <option value="Humanoid">Humanoid</option>
-                <option value="Kanine">Kanine</option>
+                <option value="Canine">Canine</option>
+                <option value="Feline">Feline</option>
                 <option value="other">Other</option>
               </select>
             </Form.Group>
@@ -121,7 +122,7 @@ const Create = () => {
           </Form>
         </div>
       </div>
-      <Link to="/..">
+      <Link to="/">
         <Button variant="danger" style={{ margin: "1rem", width: "30%", fontFamily:"Bangers", letterSpacing:"3px"}}>
           Cancel
         </Button>
