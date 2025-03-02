@@ -1,0 +1,30 @@
+.menu-wrapper{
+  display: flex;
+  flex-direction: row;
+  background-color: #292929;
+  height: calc(20px + 5vh);
+  position: fixed;
+  bottom: 0;
+
+}
+
+.menu-wrapper ul{
+  display: flex;
+  flex-direction: row;
+  color: #f9f9f9;
+  justify-content: space-evenly;
+  width: 100vw;
+
+  
+}
+.menu-wrapper li{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  font-weight: 800;
+  font-size: calc(1rem + .75vh);
+}
+.menu-wrapper li:hover{
+  cursor: pointer;
+  color: #c6c6c6;
+}

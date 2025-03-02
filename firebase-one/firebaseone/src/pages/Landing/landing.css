@@ -1,0 +1,31 @@
+.header{
+  background-color: #b7b7b7;
+  color: #f9f9f9;
+  display: flex;
+  width: 100%;
+  height: calc(70px + 10vh);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.row-align{
+  display: flex;
+  flex-direction: row;
+}
+.sidenavigasjon{
+  background-color: #f1f1f1;
+  display: flex;
+  height: 100vh;
+  width: calc(120px + 10vw);
+  min-width: 200px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 2rem;
+}
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
