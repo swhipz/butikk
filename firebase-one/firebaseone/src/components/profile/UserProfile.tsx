@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { db, storage } from "../../firebaseconfig";
+import { db } from "../../firebaseconfig";
 import { useAuth } from "../../contexts/AuthContext";
+import "./UserProfile.css";
 
 interface UserProfile {
   displayName: string;
@@ -24,6 +24,7 @@ interface UserProfile {
 const UserProfile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -42,21 +43,62 @@ const UserProfile: React.FC = () => {
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!currentUser || !e.target.files?.[0]) return;
 
-    const file = e.target.files[0];
-    const storageRef = ref(storage, `profile-photos/${currentUser.uid}`);
-
     try {
-      await uploadBytes(storageRef, file);
-      const photoURL = await getDownloadURL(storageRef);
+      const file = e.target.files[0];
+      console.log("Starting upload for file:", file.name);
 
-      if (profile) {
-        await updateDoc(doc(db, "users", currentUser.uid), {
-          photoURL,
-        });
-        setProfile({ ...profile, photoURL });
+      // Validate file type and size
+      if (!file.type.startsWith("image/")) {
+        throw new Error("Please select an image file");
       }
+      if (file.size > 500 * 1024) {
+        // 500KB max
+        throw new Error("File size must be less than 500KB");
+      }
+
+      setUploadProgress(10);
+
+      // Convert to base64
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const base64 = event.target?.result as string;
+          setUploadProgress(50);
+
+          // Update Firestore with base64 string
+          await updateDoc(doc(db, "users", currentUser.uid), {
+            photoURL: base64,
+            updatedAt: new Date(),
+          });
+          console.log("Firestore document updated");
+
+          if (profile) {
+            setProfile({ ...profile, photoURL: base64 });
+          }
+
+          setUploadProgress(100);
+          setTimeout(() => setUploadProgress(0), 2000);
+        } catch (error) {
+          console.error("Error updating profile:", error);
+          setUploadProgress(0);
+          alert("Failed to update profile photo. Please try again.");
+        }
+      };
+
+      reader.onerror = () => {
+        setUploadProgress(0);
+        alert("Failed to read file. Please try again.");
+      };
+
+      reader.readAsDataURL(file);
     } catch (error) {
-      console.error("Error uploading photo:", error);
+      console.error("Error handling photo:", error);
+      setUploadProgress(0);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("Failed to upload photo. Please try again.");
+      }
     }
   };
 
@@ -64,7 +106,10 @@ const UserProfile: React.FC = () => {
     if (!currentUser || !profile) return;
 
     try {
-      await updateDoc(doc(db, "users", currentUser.uid), { ...profile });
+      await updateDoc(doc(db, "users", currentUser.uid), {
+        ...profile,
+        updatedAt: new Date(),
+      });
       setIsEditing(false);
     } catch (error) {
       console.error("Error saving profile:", error);
@@ -77,14 +122,30 @@ const UserProfile: React.FC = () => {
     <div className="user-profile">
       <div className="profile-header">
         <div className="profile-photo">
-          <img src={profile.photoURL || "/default-avatar.png"} alt="Profile" />
+          <img
+            src={
+              profile.photoURL ||
+              "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='50' fill='%23e0e0e0'/%3E%3Cpath d='M60 70c12 0 22-10 22-22s-10-22-22-22-22 10-22 22 10 22 22 22zm0 11c-14.7 0-44 7.3-44 22v7h88v-7c0-14.7-29.3-22-44-22z' fill='%23bdbdbd'/%3E%3C/svg%3E"
+            }
+            alt="Profile"
+          />
           {isEditing && (
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handlePhotoUpload}
-              className="photo-upload"
-            />
+            <div className="photo-upload-container">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoUpload}
+                className="photo-upload"
+              />
+              {uploadProgress > 0 && (
+                <div className="upload-progress">
+                  <div
+                    className="progress-bar"
+                    style={{ width: `${uploadProgress}%` }}
+                  />
+                </div>
+              )}
+            </div>
           )}
         </div>
         <div className="profile-info">

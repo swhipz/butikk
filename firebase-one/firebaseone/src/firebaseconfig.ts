@@ -4,15 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAQ8iqA30Rxmbt8N9IIxd0uozDPDuPBmSs",
-  authDomain: "fir-one-2f11d.firebaseapp.com",
-  databaseURL:
-    "https://fir-one-2f11d-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "fir-one-2f11d",
-  storageBucket: "fir-one-2f11d.firebasestorage.app",
-  messagingSenderId: "1033439247398",
-  appId: "1:1033439247398:web:c9c8515c1e3153c1d23ae7",
-  measurementId: "G-TNE70JKDBR",
+  apiKey: "AIzaSyCLmyry3AHEADUf2iwRfbzlWeVTebdZ5jA",
+  authDomain: "fir-coach-c5175.firebaseapp.com",
+  projectId: "fir-coach-c5175",
+  storageBucket: "fir-coach-c5175.firebasestorage.app",
+  messagingSenderId: "161626121927",
+  appId: "1:161626121927:web:adadb6d9377016423980e2",
+  measurementId: "G-CVBG1XXKR3",
 };
 
 // Initialize Firebase

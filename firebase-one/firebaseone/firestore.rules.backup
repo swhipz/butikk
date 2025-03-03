@@ -1,0 +1,88 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isUserDoc(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function isCoach() {
+      return isAuthenticated() && getUserData().role == 'coach';
+    }
+
+    function isClient() {
+      return isAuthenticated() && getUserData().role == 'client';
+    }
+
+    function isParticipantInChat(chatId) {
+      let participants = chatId.split('_');
+      return request.auth.uid in participants;
+    }
+
+    // User collection rules
+    match /users/{userId} {
+      // Allow reading user documents if:
+      // 1. You're authenticated (needed for initial role check)
+      // 2. It's your own document
+      allow read: if isAuthenticated();
+      
+      // Allow creating your own user document
+      allow create: if isAuthenticated() && isUserDoc(userId);
+      
+      // Allow updating your own document
+      allow update: if isAuthenticated() && (
+        isUserDoc(userId) ||
+        // Allow coaches to update client photos (we'll add more specific rules later)
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'coach')
+      );
+      
+      allow delete: if false;
+    }
+
+    // Plans collection rules
+    match /plans/{planId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'coach';
+    }
+
+    // Chat collection rules
+    match /chats/{chatId} {
+      // Allow access if user is part of the chat (chatId is uid1_uid2)
+      allow read, write: if isAuthenticated() && isParticipantInChat(chatId);
+      
+      // Rules for messages subcollection
+      match /messages/{messageId} {
+        allow read: if isAuthenticated() && isParticipantInChat(chatId);
+        allow create: if isAuthenticated() && 
+          request.resource.data.senderId == request.auth.uid &&
+          isParticipantInChat(chatId);
+        allow update, delete: if false;
+      }
+    }
+
+    // Chat rooms collection (if you're using them)
+    match /chatRooms/{roomId} {
+      allow read: if isAuthenticated() && 
+        (request.auth.uid == resource.data.coachId || 
+         request.auth.uid == resource.data.clientId);
+      
+      allow create: if isAuthenticated() && 
+        (getUserData().role == 'coach' || getUserData().role == 'client');
+        
+      allow update: if isAuthenticated() && 
+        (request.auth.uid == resource.data.coachId || 
+         request.auth.uid == resource.data.clientId);
+         
+      allow delete: if false;
+    }
+  }
+} 

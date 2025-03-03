@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebaseconfig";
 import { useAuth } from "../../contexts/AuthContext";
+import "./chatwindow.css";
 
 interface Message {
   id: string;
@@ -70,7 +71,11 @@ const ChatWindow: React.FC<{ recipientId: string }> = ({ recipientId }) => {
               message.senderId === currentUser?.uid ? "sent" : "received"
             }`}
           >
-            <p>{message.text}</p>
+            <p className="message-content">{message.text}</p>
+
+            <div className="mark2"></div>
+            <div className="mark"></div>
+
             <span className="timestamp">
               {message.timestamp?.toLocaleTimeString()}
             </span>

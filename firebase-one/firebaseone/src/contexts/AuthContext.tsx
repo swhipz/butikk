@@ -6,12 +6,13 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   User,
+  UserCredential,
 } from "firebase/auth";
 
 interface AuthContextType {
   currentUser: User | null;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string) => Promise<void>;
+  register: (email: string, password: string) => Promise<UserCredential>;
   logout: () => Promise<void>;
   loading: boolean;
 }
@@ -47,7 +48,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const register = async (email: string, password: string) => {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    return userCredential;
   };
 
   const logout = async () => {

@@ -1,21 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Squada+One&display=swap');
-*, html{
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Squada+One&display=swap");
+*,
+html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-.App{
-  overflow-x: hidden;
+.App {
   font-family: "Host Grotesk", sans-serif;
 }
-p{
+p {
   font-size: calc(1rem + 1vh);
 }
-h1{
+h1 {
   font-weight: 800;
-  font-size: calc(4rem + 1vh);
-  letter-spacing: -.2rem;
+  letter-spacing: -0rem;
   line-height: 5rem;
   white-space: nowrap;
+}
 
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .main-content {
+    background-color: #121212;
+    color: #ffffff;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
 }
