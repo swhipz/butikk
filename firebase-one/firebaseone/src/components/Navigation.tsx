@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseconfig";
@@ -8,7 +8,10 @@ import "./Navigation.css";
 const Navigation = () => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [navLinks, setNavLinks] = useState<React.ReactNode>(null);
+
+  const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
     const fetchUserRole = async () => {
@@ -22,33 +25,77 @@ const Navigation = () => {
         if (userRole === "coach") {
           setNavLinks(
             <>
-              <Link to="/coach" className="nav-link">
+              <Link
+                to="/coach"
+                className={`nav-link ${isActive("/coach") ? "active" : ""}`}
+              >
                 Dashboard
               </Link>
-              <Link to="/coach/clients" className="nav-link">
+              <Link
+                to="/coach/clients"
+                className={`nav-link ${
+                  isActive("/coach/clients") ? "active" : ""
+                }`}
+              >
                 Clients
               </Link>
-              <Link to="/coach/plans" className="nav-link">
+              <Link
+                to="/coach/plans"
+                className={`nav-link ${
+                  isActive("/coach/plans") ? "active" : ""
+                }`}
+              >
                 Plans
               </Link>
-              <Link to="/coach/chat" className="nav-link">
+              <Link
+                to="/coach/chat"
+                className={`nav-link ${
+                  isActive("/coach/chat") ? "active" : ""
+                }`}
+              >
                 Chat
+              </Link>
+              <Link
+                to="/coach/profile"
+                className={`nav-link ${
+                  isActive("/coach/profile") ? "active" : ""
+                }`}
+              >
+                Profile
               </Link>
             </>
           );
         } else if (userRole === "client") {
           setNavLinks(
             <>
-              <Link to="/client" className="nav-link">
+              <Link
+                to="/client"
+                className={`nav-link ${isActive("/client") ? "active" : ""}`}
+              >
                 Dashboard
               </Link>
-              <Link to="/client/plans" className="nav-link">
+              <Link
+                to="/client/plans"
+                className={`nav-link ${
+                  isActive("/client/plans") ? "active" : ""
+                }`}
+              >
                 My Plans
               </Link>
-              <Link to="/client/chat" className="nav-link">
+              <Link
+                to="/client/chat"
+                className={`nav-link ${
+                  isActive("/client/chat") ? "active" : ""
+                }`}
+              >
                 Chat
               </Link>
-              <Link to="/client/profile" className="nav-link">
+              <Link
+                to="/client/profile"
+                className={`nav-link ${
+                  isActive("/client/profile") ? "active" : ""
+                }`}
+              >
                 Profile
               </Link>
             </>
@@ -60,7 +107,7 @@ const Navigation = () => {
     };
 
     fetchUserRole();
-  }, [currentUser]);
+  }, [currentUser, location.pathname]);
 
   const handleLogout = async () => {
     try {

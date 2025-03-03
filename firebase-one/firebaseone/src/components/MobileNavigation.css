@@ -1,0 +1,71 @@
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .mobile-nav button {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 8px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-nav button.active {
+    color: #fff;
+  }
+
+  .mobile-nav button.active i {
+    font-weight: 900;
+  }
+
+  /* Use regular (outline) icons by default */
+  .mobile-nav .fa-compass,
+  .mobile-nav .fa-users,
+  .mobile-nav .fa-clipboard,
+  .mobile-nav .fa-comments,
+  .mobile-nav .fa-user-circle {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+  }
+
+  /* Use solid icons for active state */
+  .mobile-nav button.active .fa-compass,
+  .mobile-nav button.active .fa-users,
+  .mobile-nav button.active .fa-clipboard,
+  .mobile-nav button.active .fa-comments,
+  .mobile-nav button.active .fa-user-circle {
+    font-weight: 900;
+  }
+
+  .mobile-nav button:hover {
+    color: #fff;
+  }
+
+  .mobile-nav i {
+    margin-bottom: 4px;
+  }
+
+  /* Add padding to main content to prevent overlap with nav */
+  body {
+    padding-bottom: 60px;
+  }
+}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseconfig";
 import { useAuth } from "../../contexts/AuthContext";
+import "./Dashboard.css";
 
 interface Client {
   id: string;
@@ -62,39 +63,41 @@ const CoachDashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <h1>Coach Dashboard</h1>
+      <h1 className="header">Coach Dashboard</h1>
+
+      {/* Stories-like client avatars */}
+      <div className="clients-list">
+        {clients.map((client) => (
+          <div key={client.id} className="client-item">
+            <img
+              src={client.photoURL || "/default-avatar.png"}
+              alt={client.displayName}
+              className="client-avatar"
+            />
+            <div className="client-info">
+              <h3>{client.displayName}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="dashboard-grid">
-        <div className="dashboard-card clients-overview">
-          <h2>Your Clients</h2>
-          <div className="clients-list">
-            {clients.map((client) => (
-              <div key={client.id} className="client-item">
-                <img
-                  src={client.photoURL || "/default-avatar.png"}
-                  alt={client.displayName}
-                  className="client-avatar"
-                />
-                <div className="client-info">
-                  <h3>{client.displayName}</h3>
-                  {client.lastActive && (
-                    <p>Last active: {client.lastActive.toLocaleDateString()}</p>
-                  )}
-                </div>
-                <button
-                  onClick={() => navigate(`/coach/chat?client=${client.id}`)}
-                >
-                  Message
-                </button>
-              </div>
-            ))}
+        <div className="dashboard-card stats">
+          <h2>Statistics</h2>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <h3>Total Clients</h3>
+              <p>{clients.length}</p>
+            </div>
+            <div className="stat-item">
+              <h3>Active Plans</h3>
+              <p>Coming soon</p>
+            </div>
+            <div className="stat-item">
+              <h3>Sessions</h3>
+              <p>{upcomingSessions.length}</p>
+            </div>
           </div>
-          <button
-            onClick={() => navigate("/coach/clients")}
-            className="view-all-btn"
-          >
-            View All Clients
-          </button>
         </div>
 
         <div className="dashboard-card upcoming-sessions">
@@ -109,6 +112,7 @@ const CoachDashboard: React.FC = () => {
                   <p>{session.date.toLocaleString()}</p>
                 </div>
                 <button
+                  className="message-client-from-dashboard"
                   onClick={() =>
                     navigate(`/coach/chat?client=${session.clientId}`)
                   }
@@ -123,32 +127,10 @@ const CoachDashboard: React.FC = () => {
         <div className="dashboard-card quick-actions">
           <h2>Quick Actions</h2>
           <button onClick={() => navigate("/coach/plans/new")}>
-            Create New Plan
+            Create Plan
           </button>
-          <button onClick={() => navigate("/coach/clients")}>
-            Manage Clients
-          </button>
-          <button onClick={() => navigate("/coach/profile")}>
-            Update Profile
-          </button>
-        </div>
-
-        <div className="dashboard-card stats">
-          <h2>Statistics</h2>
-          <div className="stats-grid">
-            <div className="stat-item">
-              <h3>Total Clients</h3>
-              <p>{clients.length}</p>
-            </div>
-            <div className="stat-item">
-              <h3>Active Plans</h3>
-              <p>Coming soon</p>
-            </div>
-            <div className="stat-item">
-              <h3>Sessions This Week</h3>
-              <p>{upcomingSessions.length}</p>
-            </div>
-          </div>
+          <button onClick={() => navigate("/coach/clients")}>Clients</button>
+          <button onClick={() => navigate("/coach/profile")}>Profile</button>
         </div>
       </div>
     </div>

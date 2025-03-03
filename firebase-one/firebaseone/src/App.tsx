@@ -9,6 +9,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import "./App.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
+import MobileNavigation from "./components/MobileNavigation";
 
 // Client Pages
 import ClientDashboard from "./pages/Client/Dashboard";
@@ -122,6 +123,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
+          <MobileNavigation />
         </div>
       </AuthProvider>
     </Router>

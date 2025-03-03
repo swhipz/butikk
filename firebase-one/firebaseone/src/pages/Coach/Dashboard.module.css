@@ -1,0 +1,28 @@
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(0);
+}
+
+/* Apply the button class to specific buttons*/
+.view-all-btn,
+.quick-actions button,
+.client-item button,
+.session-item button {
+  @extend .button;
+}

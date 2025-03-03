@@ -1,0 +1,380 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.header {
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #444;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.clients-overview {
+  /* Additional styles specific to clients overview can be added here */
+}
+
+.clients-list {
+  margin-top: 10px;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.client-item:hover {
+  background-color: #555;
+}
+
+.client-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #555;
+  transition: border-color 0.3s ease;
+  object-fit: cover;
+}
+
+.client-avatar:hover {
+  border-color: #777;
+}
+
+.client-info {
+  flex: 1;
+  color: #fff;
+}
+
+.client-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.client-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Common button styles */
+.action-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.action-button:active {
+  background-color: #3e8e41;
+  transform: translateY(0);
+}
+
+/* Apply action-button styles to specific buttons */
+.view-all-btn,
+.quick-actions button,
+.client-item button,
+.session-item button {
+  composes: action-button;
+}
+
+/* Quick Actions specific styles */
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-actions button {
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 9px;
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+.quick-actions button:hover {
+  transition: all 0.5s ease;
+  background-color: #74db44;
+  cursor: pointer;
+}
+
+/* Sessions styles */
+.sessions-list {
+  margin-top: 10px;
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #555;
+}
+
+.session-info {
+  flex: 1;
+  color: #fff;
+}
+
+.session-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.session-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Stats styles */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.stat-item {
+  background-color: #555;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+}
+
+.stat-item h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.stat-item p {
+  margin: 10px 0 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+.message-client-from-dashboard {
+  background-color: #3a86ff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.message-client-from-dashboard:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.message-client-from-dashboard:active {
+  transform: translateY(0);
+}
+
+.message-client-from-dashboard::before {
+  content: "💬";
+  font-size: 16px;
+}
+
+/* Mobile styles - Instagram-like interface */
+@media (max-width: 768px) {
+  .dashboard-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    border-radius: 0;
+  }
+
+  .header {
+    padding: 15px;
+    margin: 0;
+    font-size: 20px;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    z-index: 100;
+  }
+
+  /* Stories/Avatars row */
+  .clients-list {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    margin: 0;
+    background-color: #000;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .clients-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .client-item {
+    flex: 0 0 auto;
+    flex-direction: column;
+    margin: 0 8px;
+    padding: 0;
+    background: none;
+    width: 70px;
+    text-align: center;
+  }
+
+  .client-avatar {
+    width: 60px;
+    height: 60px;
+    margin: 0 0 5px 0;
+    border: 2px solid #ff3040;
+    padding: 2px;
+  }
+
+  .client-info {
+    width: 100%;
+  }
+
+  .client-info h3 {
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .client-info p {
+    display: none;
+  }
+
+  /* Main content cards */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background-color: #000;
+  }
+
+  .dashboard-card {
+    margin: 0;
+    border-radius: 0;
+    background-color: #111;
+    box-shadow: none;
+  }
+
+  .dashboard-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Bottom navigation */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+    z-index: 100;
+  }
+
+  .mobile-nav button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 8px;
+  }
+
+  /* Hide certain elements on mobile */
+  .client-item button,
+  .view-all-btn {
+    display: none;
+  }
+
+  /* Quick actions become more like Instagram post actions */
+  .quick-actions {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+  }
+
+  .quick-actions button {
+    width: auto;
+    background: none;
+    color: #fff;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Stats cards become more like Instagram post stats */
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #333;
+    padding-top: 10px;
+  }
+
+  .stat-item {
+    background: none;
+    padding: 10px;
+  }
+}
