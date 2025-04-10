@@ -1,10 +1,12 @@
 {
   "name": "crud_one",
+  "homepage": "https://swhipz.github.io/crud_one_live",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
+    "gh-pages": "^6.3.0",
     "i": "^0.3.7",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
@@ -14,6 +16,8 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
+    "deploy": "gh-pages -d dist",
+    "predeploy": "yarn run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -36,5 +40,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

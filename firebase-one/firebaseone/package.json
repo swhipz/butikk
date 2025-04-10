@@ -1,0 +1,52 @@
+{
+  "name": "firebaseone",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "dependencies": {
+    "@stripe/stripe-js": "^5.7.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.8",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-image-crop": "^9.0.2",
+    "firebase": "^11.4.0",
+    "firebase-tools": "^13.32.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-image-crop": "^11.0.7",
+    "react-router-dom": "^7.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.8.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
