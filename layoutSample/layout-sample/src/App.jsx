@@ -1,17 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
-import { Link, Route, BrowserRouter } from 'react-router';
+import React from "react";
 import Home from './pages/home/Home';
+import Items from './pages/items/Items';
+import Checkout from './pages/checkout/Checkout';
+import { Outlet } from 'react-router-dom';
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Header />
-      <Home />
-    </div>
+<>
+<Header />
+
+</>
   );
 }
-
-export default App;

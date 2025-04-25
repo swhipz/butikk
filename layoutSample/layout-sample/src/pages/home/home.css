@@ -29,10 +29,14 @@ body{
     font-weight: 500;
 }
 @media screen and (max-width: 789px){
-    .home-main-content{
-        width: 100vw;
-    }
     .home-container{
         width: 100vw;
     }
+    .home-main{
+        width: 100vw;
+    }
+    .home-main-content{
+        width: 100vw;
+    }
+
 }

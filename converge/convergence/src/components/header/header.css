@@ -1,0 +1,37 @@
+.header-wrap{
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+}
+.header-contents{
+    width: 80vw;
+    height: 11vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.header-logo h1{
+    font-weight: 200;
+}
+.header-contents ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem; 
+}
+.header-contents li{
+    
+}
+.header-contents a {
+    color: #292929;
+    text-decoration: none;
+    font-weight: 500;
+    text-shadow: none;
+}
+.header-contents a:hover{
+    transition: .25s;
+    text-shadow: 2px 1px 0px rgba(0, 0, 0, .3);
+}

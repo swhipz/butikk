@@ -8,8 +8,9 @@
   
 
 .header-container header{
+    display: flex;
     flex-direction: row; 
-    height: 20vh; 
+    height: 25vh; 
     align-items: center;
     justify-content: space-evenly;
     background-color: #faebd7;
@@ -33,4 +34,17 @@
 }
 .header-ul li{
     padding: 0 1rem;
+}
+
+.header-ul li a {
+    color: #cea068;
+    text-decoration: underline transparent;
+    text-underline-offset: 1rem;
+    transition: 2s;
+}
+.header-ul li a:hover{
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    color: #968344;
+    text-decoration: underline;
 }
